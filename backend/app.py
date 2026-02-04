@@ -19,11 +19,11 @@ def analyze():
     content = data["content"].strip()
 
     if len(content) < 50:
-        return jsonify({"error" : "content too short for analysus"}), 400
+        return jsonify({"error" : "content too short for analysis"}), 400
     
     try:
         report = analyze_blog_content(content)
-        return jsonify({"report" : report}), 200
+        return jsonify(report), 200
     except Exception as e :
         return jsonify({"error": str(e)}), 500
     
